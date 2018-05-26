@@ -72,8 +72,8 @@ Module Module1
         optedOutUsers = File.ReadAllLines(exePath & "\OptedOut.txt")
 
         ' Bot username and password
-        Dim username As String = "xevelevex"
-        Dim password As String = "emptyy12"
+        Dim username As String = "***"
+        Dim password As String = "***"
 
         'Dim redObj As Reddit
 
