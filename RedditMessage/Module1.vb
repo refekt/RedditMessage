@@ -50,7 +50,7 @@ Module Module1
             loadOrders = File.ReadAllLines(exePath & "\GenOrders.txt") ' The text file with the actual message in it
             messageText = String.Join(vbNewLine, loadOrders) ' Converts each index (paragraphs) into a single string with new lines between each one.
 
-            messageSubject = "/r/HuskersRisk GENERAL Daily OrderS" ' Message subject
+            messageSubject = "/r/HuskersRisk GENERAL Daily Orders" ' Message subject
 
         ElseIf whichOrders = 2 Then
 
@@ -59,7 +59,7 @@ Module Module1
             loadOrders = File.ReadAllLines(exePath & "\AdvOrders.txt") ' The text file with the actual message in it
             messageText = String.Join(vbNewLine, loadOrders) ' Converts each index (paragraphs) into a single string with new lines between each one.
 
-            messageSubject = "/r/HuskersRisk ADVANCED Daily OrderS" ' Message subject
+            messageSubject = "/r/HuskersRisk ADVANCED Daily Orders" ' Message subject
 
         Else
 
@@ -72,22 +72,10 @@ Module Module1
         optedOutUsers = File.ReadAllLines(exePath & "\OptedOut.txt")
 
         ' Bot username and password
-        Dim username As String = "***"
-        Dim password As String = "***"
+        Dim username As String = "*"
+        Dim password As String = "*"
 
-        'Dim redObj As Reddit
-
-        '        Try
-
-        Dim redObj As Reddit = New Reddit(username, password, True) ' Opens the bot account
-
-        'Catch ex As Exception
-
-        'Console.WriteLine("Bot username and/or password. Please check source code. Exiting application...")
-        'Console.ReadLine()
-        'Exit Sub
-
-        'End Try
+        Dim redObj As Reddit = New Reddit(username, password, True) ' Opens the bot account ... will also crash the app if the username/pw is wrong
 
         Dim i As Integer, j As Integer
         Dim skipMe As Boolean
@@ -105,7 +93,7 @@ Module Module1
                 Debug.WriteLine(usersTo(i) & vbTab & optedOutUsers(j))
                 If usersTo(i) = optedOutUsers(j) Then
                     skipMe = True
-                    Console.WriteLine(" Skipping " & optedOutUsers(j))
+                    Console.WriteLine(" Skipping due to opt-out : " & optedOutUsers(j))
                 End If
             Next j ' Highly inefficient!
 
